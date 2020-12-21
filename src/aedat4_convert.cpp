@@ -1,3 +1,4 @@
+// Copyright 2020 iniVation AG
 #include "aedat4_convert.hpp"
 
 #define DV_API_OPENCV_SUPPORT 0

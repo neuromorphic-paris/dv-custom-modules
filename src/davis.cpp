@@ -1,3 +1,5 @@
+// Copyright 2020 iniVation AG
+// Modified 2020 Lorenzo Vannucci
 #define DV_API_OPENCV_SUPPORT 0
 
 #include "dv-sdk/cross/portable_time.h"

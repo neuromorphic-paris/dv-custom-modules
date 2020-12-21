@@ -1,4 +1,5 @@
-﻿#ifndef LOG_HPP_
+﻿// Copyright 2020 iniVation AG
+#ifndef LOG_HPP_
 #define LOG_HPP_
 
 #include "dv-sdk/utils.h"

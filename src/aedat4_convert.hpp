@@ -1,3 +1,4 @@
+// Copyright 2020 iniVation AG
 #ifndef AEDAT4_CONVERT_H
 #define AEDAT4_CONVERT_H
 
