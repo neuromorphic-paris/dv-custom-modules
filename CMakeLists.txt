@@ -47,14 +47,16 @@ FIND_PACKAGE(libcaer 3.3.8 REQUIRED)
 # Set full RPATH, modules are libraries for DV
 SET(CMAKE_INSTALL_RPATH ${DV_MODULES_DIR})
 
-# Compile this module (standard C++ file, no additional dependencies)
-ADD_LIBRARY(davis SHARED src/davis.cpp src/aedat4_convert.cpp)
+# function to add new modules
+FUNCTION(add_new_module target)
+    ADD_LIBRARY(${target} SHARED ${ARGN})
+	SET_TARGET_PROPERTIES(${target}
+		PROPERTIES
+		PREFIX "nvp_"
+	)
+	TARGET_LINK_LIBRARIES(${target} PRIVATE ${DV_LIBRARIES} libcaer::caer)
+	INSTALL(TARGETS ${target} DESTINATION ${DV_MODULES_DIR})
+ENDFUNCTION()
 
-SET_TARGET_PROPERTIES(davis
-	PROPERTIES
-	PREFIX "sync_"
-)
-
-TARGET_LINK_LIBRARIES(davis PRIVATE ${DV_LIBRARIES} libcaer::caer)
-
-INSTALL(TARGETS davis DESTINATION ${DV_MODULES_DIR})
+# modules to add
+add_new_module(syncdavis src/davis.cpp src/aedat4_convert.cpp)
