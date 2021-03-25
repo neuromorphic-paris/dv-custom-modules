@@ -60,3 +60,5 @@ ENDFUNCTION()
 
 # modules to add
 add_new_module(syncdavis src/davis.cpp src/aedat4_convert.cpp)
+
+add_new_module(sionoise src/sionoise.cpp)
